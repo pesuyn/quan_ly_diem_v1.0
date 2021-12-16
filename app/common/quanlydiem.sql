@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 14, 2021 lúc 10:10 AM
+-- Thời gian đã tạo: Th12 16, 2021 lúc 03:14 PM
 -- Phiên bản máy phục vụ: 10.4.13-MariaDB
 -- Phiên bản PHP: 7.2.32
 
@@ -47,15 +47,16 @@ INSERT INTO `admins` (`id`, `login_id`, `password`, `actived_flag`, `reset_passw
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `result`
+-- Cấu trúc bảng cho bảng `scores`
 --
 
-CREATE TABLE `result` (
+CREATE TABLE `scores` (
   `id` int(10) NOT NULL,
   `student_id` int(10) NOT NULL,
   `subject_id` int(10) NOT NULL,
   `teacher_id` int(10) NOT NULL,
-  `mark` float NOT NULL,
+  `score` int(2) NOT NULL DEFAULT 0,
+  `description` text NOT NULL,
   `updated` datetime NOT NULL DEFAULT current_timestamp(),
   `created` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -120,9 +121,9 @@ ALTER TABLE `admins`
   ADD UNIQUE KEY `login_id` (`login_id`);
 
 --
--- Chỉ mục cho bảng `result`
+-- Chỉ mục cho bảng `scores`
 --
-ALTER TABLE `result`
+ALTER TABLE `scores`
   ADD PRIMARY KEY (`id`),
   ADD KEY `student_id` (`student_id`),
   ADD KEY `subject_id` (`subject_id`),
@@ -157,9 +158,9 @@ ALTER TABLE `admins`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT cho bảng `result`
+-- AUTO_INCREMENT cho bảng `scores`
 --
-ALTER TABLE `result`
+ALTER TABLE `scores`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
@@ -185,12 +186,12 @@ ALTER TABLE `teachers`
 --
 
 --
--- Các ràng buộc cho bảng `result`
+-- Các ràng buộc cho bảng `scores`
 --
-ALTER TABLE `result`
-  ADD CONSTRAINT `result_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `result_ibfk_2` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `result_ibfk_3` FOREIGN KEY (`teacher_id`) REFERENCES `teachers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `scores`
+  ADD CONSTRAINT `scores_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `scores_ibfk_2` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `scores_ibfk_3` FOREIGN KEY (`teacher_id`) REFERENCES `teachers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
