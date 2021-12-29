@@ -1,0 +1,32 @@
+body {
+    display: flex;
+}
+.content {
+    border: 2px solid #7c7f83;
+    height: 500px;
+    width: 1200px;
+    margin: 20px auto 0;
+    padding: 50px;
+}
+.info {
+    height: 100px;
+    flex-direction:column;
+}
+.key {
+    width: 1200px;
+    display: flex;
+    flex-direction: row;
+}
+.id{
+    width: 25%;
+}
+.directional {
+    width: 1200px;
+    display: flex;
+    flex-direction: row;
+}
+.a {
+    width: 25%;
+    margin-left: 35px;
+    color: blue;
+}

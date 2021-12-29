@@ -1,0 +1,62 @@
+.content {
+    border: 2px solid #7c7f83;
+    height: 400px;
+    width: 600px;
+    margin: 100px auto 0;
+}
+
+.label {
+    height: 30px;
+    width: 120px;
+    font-weight: bold;
+    text-align: start;
+    font-size: larger;
+    color: rgb(0, 0, 0);
+}
+
+.input {
+    background-color: #b6b9bd;
+    height: 50px;
+    width: 320px;
+    border: 2px solid #6b6f72;
+    margin-left: 20px;
+}
+
+.form {
+    height: 50px;
+    width: 500px;
+    margin: 24px auto;
+}
+
+.button {
+    background-color: #5b9bd5;
+    height: 50px;
+    border-radius: 10px;
+    margin-top: 20px;
+    font-size: medium;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    border: #5b9bd5;
+    padding-left: 30px;
+    padding-right: 30px;
+    align-content: center;
+}
+
+table tr {
+    margin-bottom: 10px;
+    display: inline-block;
+    width: 100%;
+}
+table th {
+    height: 24px;
+}
+.a {
+    font-style: italic; 
+    font-size: large;
+    color: black;
+    margin-left: 100px;
+}
+.Validate {
+    color: red;
+    font-weight: bold;
+}
