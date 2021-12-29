@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 16, 2021 lúc 03:17 PM
--- Phiên bản máy phục vụ: 10.4.13-MariaDB
--- Phiên bản PHP: 7.2.32
+-- Thời gian đã tạo: Th12 25, 2021 lúc 05:01 PM
+-- Phiên bản máy phục vụ: 10.4.22-MariaDB
+-- Phiên bản PHP: 8.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -61,6 +61,27 @@ CREATE TABLE `scores` (
   `created` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Đang đổ dữ liệu cho bảng `scores`
+--
+
+INSERT INTO `scores` (`id`, `student_id`, `subject_id`, `teacher_id`, `score`, `description`, `updated`, `created`) VALUES
+(1, 1, 1, 1, 10, '', '2021-12-25 13:34:47', '2021-12-25 07:33:47'),
+(2, 1, 3, 3, 9, '', '2021-12-25 13:35:19', '2021-12-25 07:35:05'),
+(3, 7, 7, 7, 9, '', '2021-12-25 13:35:19', '2021-12-25 07:35:05'),
+(4, 1, 2, 2, 9, '', '2021-12-25 13:35:58', '2021-12-25 07:35:47'),
+(5, 1, 4, 4, 9, '', '2021-12-25 13:36:09', '2021-12-25 07:36:00'),
+(6, 1, 6, 6, 9, '', '2021-12-25 13:36:28', '2021-12-25 07:36:11'),
+(7, 1, 7, 7, 10, '', '2021-12-25 13:36:41', '2021-12-25 07:36:29'),
+(8, 1, 5, 5, 9, '', '2021-12-25 13:36:55', '2021-12-25 07:36:43'),
+(9, 4, 1, 1, 9, '', '2021-12-25 13:37:14', '2021-12-25 07:37:03'),
+(10, 3, 4, 4, 9, '', '2021-12-25 13:37:28', '2021-12-25 07:37:16'),
+(11, 2, 7, 7, 9, '', '2021-12-25 13:37:42', '2021-12-25 07:37:30'),
+(12, 5, 6, 6, 10, '', '2021-12-25 13:37:57', '2021-12-25 07:37:43'),
+(13, 6, 4, 4, 9, '', '2021-12-25 22:58:26', '2021-12-25 16:58:12'),
+(14, 8, 1, 1, 10, '', '2021-12-25 23:00:27', '2021-12-25 17:00:12'),
+(15, 7, 4, 4, 10, '', '2021-12-25 23:00:38', '2021-12-25 17:00:28');
+
 -- --------------------------------------------------------
 
 --
@@ -75,6 +96,20 @@ CREATE TABLE `students` (
   `updated` datetime NOT NULL DEFAULT current_timestamp(),
   `created` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `students`
+--
+
+INSERT INTO `students` (`id`, `name`, `avatar`, `description`, `updated`, `created`) VALUES
+(1, 'Hà Quốc Việt', 'Viet.jpg', '', '2021-12-25 13:22:49', '2021-12-25 07:21:46'),
+(2, 'Trần Quang Thụy', 'Thuy.jpg', '', '2021-12-25 13:23:16', '2021-12-25 07:23:02'),
+(3, 'Phạm Minh Tiến', 'Tien.jpg', '', '2021-12-25 13:23:35', '2021-12-25 07:23:26'),
+(4, 'Nguyễn Xuân Thành', 'Thanh.jpg', '', '2021-12-25 13:23:55', '2021-12-25 07:23:39'),
+(5, 'Đỗ Hữu Quang', 'quang.jpg', '', '2021-12-25 13:24:12', '2021-12-25 07:24:03'),
+(6, 'Nguyễn Long Hải', 'hai.jpg', '', '2021-12-25 22:57:50', '2021-12-25 16:57:29'),
+(7, 'Phí Linh Chi', 'chi.jpg', '', '2021-12-25 22:59:51', '2021-12-25 16:59:42'),
+(8, 'Trần Thị Huyền Trang', 'trang.jpg', '', '2021-12-25 23:00:06', '2021-12-25 16:59:53');
 
 -- --------------------------------------------------------
 
@@ -92,6 +127,19 @@ CREATE TABLE `subjects` (
   `created` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Đang đổ dữ liệu cho bảng `subjects`
+--
+
+INSERT INTO `subjects` (`id`, `name`, `avatar`, `description`, `school_year`, `updated`, `created`) VALUES
+(1, 'Lập trình web', 'web.jpg', '', '2K', '2021-12-25 13:26:55', '2021-12-25 07:24:42'),
+(2, 'Cơ sở dữ liệu', 'csdl.jpg', '', '2K', '2021-12-25 13:27:42', '2021-12-25 07:27:26'),
+(3, 'Cấu trúc dữ liệu và thuật toán ', 'dsa.jpg', '', '2K1', '2021-12-25 13:28:04', '2021-12-25 07:27:44'),
+(4, 'Machine Learning', 'ml.jpg', '', '2K', '2021-12-25 13:28:20', '2021-12-25 07:28:06'),
+(5, 'Xử lí ngôn ngữ tự nhiên và ứng dụng', 'nlp.jpg', '', '2K', '2021-12-25 13:28:41', '2021-12-25 07:28:22'),
+(6, 'Mật mã và an toàn thông tin', 'crypto.jpg', '', '2K', '2021-12-25 13:28:57', '2021-12-25 07:28:44'),
+(7, 'Thị giác máy tính', 'vision.jpg', '', '2K1', '2021-12-25 13:29:21', '2021-12-25 07:29:07');
+
 -- --------------------------------------------------------
 
 --
@@ -108,6 +156,19 @@ CREATE TABLE `teachers` (
   `updated` datetime NOT NULL DEFAULT current_timestamp(),
   `created` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `teachers`
+--
+
+INSERT INTO `teachers` (`id`, `name`, `avatar`, `description`, `specialized`, `degree`, `updated`, `created`) VALUES
+(1, 'Trần Thị Huyền Trang', 'trang.jpg', '', 'WEB', 'BS', '2021-12-25 13:30:31', '2021-12-25 07:30:03'),
+(2, 'Vũ Tiến Dũng', 'dung.jpg', '', 'DS', 'PHD', '2021-12-25 13:30:58', '2021-12-25 07:30:33'),
+(3, 'Hoàng Thanh Tùng', 'tung.jpg', '', 'ML', 'PHD', '2021-12-25 13:31:30', '2021-12-25 07:31:02'),
+(4, 'Lê Hồng Phương', 'phuong.jpg', '', 'DS', 'PHD', '2021-12-25 13:31:48', '2021-12-25 07:31:33'),
+(5, 'Nguyễn Thị Minh Huyền', 'huyen.jpg', '', 'NLP', 'PHD', '2021-12-25 13:32:24', '2021-12-25 07:31:50'),
+(6, 'Phó Đức Tài', 'tai.jpg', '', 'MATH', 'PHD', '2021-12-25 13:32:46', '2021-12-25 07:32:29'),
+(7, 'Nguyễn Thị Bích Thủy', 'thuy.jpg', '', 'CV', 'PHD', '2021-12-25 13:33:25', '2021-12-25 07:33:04');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -161,25 +222,25 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT cho bảng `scores`
 --
 ALTER TABLE `scores`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT cho bảng `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
