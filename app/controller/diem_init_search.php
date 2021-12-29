@@ -16,13 +16,14 @@ isset($_GET['searchByTeacher'])){
 }
 
 if(isset($_GET['idD'])){
-    header('location: diem_delete.php');
+    $id = $_GET['idD'];
+    $test->delete($id);
+    header('location: diem_init_search.php');
 }
 
 if(isset($_GET['idE'])){
     header('location: diem_edit.php');
 }
-
 
 require_once 'C:/xampp/htdocs/web/quanlydiem/app/view/diem_timkiem_input.php';
 ?>

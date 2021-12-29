@@ -85,7 +85,7 @@ $(".delbutton").click(function(){
                         <td>" . $key['Giáo viên'] . "</td>
                         <td>" . $key['Điểm'] . "</td>  
                         <td>
-                            <a href='diem_delete.php?idD=".$key['NO']."'
+                            <a href='diem_init_search.php?idD=".$key['NO']."'
                                 class='delbutton' >Xóa</a>
                         </td>   
                         
@@ -114,7 +114,7 @@ $(".delbutton").click(function(){
                         <td>" . $keyAll['Giáo viên'] . "</td>
                         <td>" . $keyAll['Điểm'] . "</td>  
                         <td>
-                            <a href='diem_delete.php?idD=".$keyAll['NO']."'
+                            <a href='diem_init_search.php?idD=".$keyAll['NO']."'
                                 class='delbutton' >Xóa</a>
                         </td>   
                         
