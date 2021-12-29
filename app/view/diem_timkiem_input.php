@@ -55,22 +55,23 @@ $(".delbutton").click(function(){
     </div>
 
     <div class="container_table">
-        <div class="found">
+        <div class="found"><label>
             <?php
             if($init==1){
                 echo "Số bản ghi tìm thấy: $rowCounts";
             }
             ?>
+            </label>
         </div>
         <table>
             <tr>
-                <th>NO</th>  
-                <th>Sinh viên</th>
-                <th>Môn học</th>
-                <th>Giáo viên</th>
-                <th>Điểm</th>
-                <th>Action</th>
-                <th>Action</th>
+                <th scope="col"><label>NO</th>  
+                <th scope="col"><label>Sinh viên</th>
+                <th scope="col"><label>Môn học</th>
+                <th scope="col"><label>Giáo viên</th>
+                <th scope="col"><label>Điểm</th>
+                <th scope="col"><label>Action</th>
+                <th scope="col"><label>Action</th>
             </tr>
             <?php
             if (isset($rowCounts) && $rowCounts>0) {
@@ -99,7 +100,9 @@ $(".delbutton").click(function(){
                 echo "";
             }else{
                 if($init==0){
-                    echo '<div class="found">Số bản ghi tìm thấy: '.$rowCountsScores.'</span></div>';
+                    echo '<div class="found">
+                            <label>Số bản ghi tìm thấy</label>: '.$rowCountsScores.'
+                        </div>';
                 }
                 $stt = 1;
                 foreach ($statementScores as $keyAll){
