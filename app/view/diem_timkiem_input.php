@@ -10,25 +10,6 @@
     </style>
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-<script type="text/javascript">
-$(function() {
-$(".delbutton").click(function(){
- if(confirm("Bạn chắc chắn muốn xóa điểm của sinh viên này?")) {
-    $.ajax({
-     type: "GET",
-     data: idD,
-     success: function(data){ 
-     alert(data);
-     }
-  });
-    $(this).parents(".record").animate({ backgroundColor: "#fbc7c7" }, "fast")
-    .animate({ opacity: "hide" }, "slow");
-  }
- return false;
-});
-});
-</script>
 
 <body>
     <div class="container_search">
@@ -76,25 +57,26 @@ $(".delbutton").click(function(){
             <?php
             if (isset($rowCounts) && $rowCounts>0) {
                 $stt = 1;
-                foreach ($statement as $key) {
-                    echo "
+                foreach ($statement as $key) { ?>
                     <tr>
-                        <td>" . $stt++ ."</td>
-                        <td>" . $key['Sinh viên'] . "</td>
-                        <td>" . $key['Môn học'] . "</td>
-                        <td>" . $key['Giáo viên'] . "</td>
-                        <td>" . $key['Điểm'] . "</td>  
+                        <td> <?php $stt++ ?></td>
+                        <td> <?php $key['Sinh viên'] ?></td>
+                        <td> <? $key['Môn học'] ?></td>
+                        <td> <? $key['Giáo viên'] ?></td>
+                        <td> <? $key['Điểm'] ?></td>   
                         <td>
-                            <a href='diem_init_search.php?idD=".$key['NO']."'
-                                class='delbutton' >Xóa</a>
+                            <div class ="action">
+                            <a href='diem_init_search.php?idD=<?php echo $key['NO'] ?>'
+                                class='delbutton'  
+                                onclick="return confirm('Bạn có muốn xóa sinh viên <?php echo $keyAll['Sinh viên']; ?>')">Xóa</a>
                         </td>   
                         
                         <td>
-                            <a href='diem_edit.php?idE=".$key['NO']."'
+                            <a href="diem_edit.php?idE=<?php echo $keyAll['NO']; ?>"
                                 class='editbutton'>Sửa</a>
-                        </td>                                
+                        </td>                                      
                     </tr>
-                    ";
+                    <?php
                 }
             }else if (isset($rowCounts) && $rowCounts == 0 && $check==1) {
                 echo "";
@@ -105,25 +87,26 @@ $(".delbutton").click(function(){
                         </div>';
                 }
                 $stt = 1;
-                foreach ($statementScores as $keyAll){
-                    echo "
+                foreach ($statementScores as $keyAll){ ?>   
                     <tr>
-                        <td>" . $stt++ ."</td>
-                        <td>" . $keyAll['Sinh viên'] . "</td>
-                        <td>" . $keyAll['Môn học'] . "</td>
-                        <td>" . $keyAll['Giáo viên'] . "</td>
-                        <td>" . $keyAll['Điểm'] . "</td>  
+                        <td> <?php $stt++ ?></td>
+                        <td> <?php $keyAll['Sinh viên'] ?></td>
+                        <td> <? $keyAll['Môn học'] ?></td>
+                        <td> <? $keyAll['Giáo viên'] ?></td>
+                        <td> <? $keyAll['Điểm'] ?></td>   
                         <td>
-                            <a href='diem_init_search.php?idD=".$keyAll['NO']."'
-                                class='delbutton' >Xóa</a>
+                            <div class ="action">
+                            <a href='diem_init_search.php?idD=<?php echo $key['NO'] ?>'
+                                class='delbutton'  
+                                onclick="return confirm('Bạn có muốn xóa sinh viên <?php echo $keyAll['Sinh viên']; ?>')">Xóa</a>
                         </td>   
                         
                         <td>
-                            <a href='diem_edit.php?idE=".$keyAll['NO']."'
+                            <a href="diem_edit.php?idE=<?php echo $keyAll['NO']; ?>"
                                 class='editbutton'>Sửa</a>
                         </td>         
                     </tr>
-                    ";
+                    <?php 
                 }
             }
             ?>
