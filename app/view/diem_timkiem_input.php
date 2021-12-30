@@ -14,6 +14,8 @@
 <body>
     <div class="container_search">
         <form action="" method="GET">
+            <input type="hidden" name="module" value="diem">
+            <input type="hidden" name="action" value="search">
             <div class="form_student">
                 <label class="keyword1" for="username"><?php echo "Sinh viên" ?></label>
                 <input type="text" name="searchByStudent" class="input1" />
@@ -65,11 +67,11 @@
                         <td> <?php echo $key['Điểm'] ?></td>   
                         <td>
                         <div class ="button_action">
-                            <a href='diem_init_search.php?idD=<?php echo $key['NO'] ?>'
+                            <a href='<?php echo '?module=diem&action=delete&id='. $key['NO']; ?>'
                                 class='delbutton'  
                                 onclick="return confirm('Bạn có muốn xóa điểm của sinh viên <?php echo $key['Sinh viên']; ?> ?')">Xóa</a>
                         
-                            <a href="diem_edit.php?idE=<?php echo $key['NO']; ?>"
+                                <a href='<?php echo '?module=diem&action=edit&id='. $key['NO']; ?>'
                                 class='editbutton'>Sửa</a>
                         </td>   
                         </div>                         
@@ -96,11 +98,11 @@
                         <td> <?php echo $keyAll['Điểm'] ?></td>   
                         <td>
                             <div class ="button_action">
-                            <a href='diem_init_search.php?idD=<?php echo $keyAll['NO'] ?>'
+                            <a href='<?php echo '?module=diem&action=delete&id='. $keyAll['NO']; ?>'
                                 class='delbutton'  
                                 onclick="return confirm('Bạn có muốn xóa điểm của sinh viên <?php echo $keyAll['Sinh viên']; ?> ?')">Xóa</a>
                         
-                            <a href="diem_edit.php?idE=<?php echo $keyAll['NO']; ?>"
+                                <a href='<?php echo '?module=diem&action=edit&id='. $keyAll['NO']; ?>'
                                 class='editbutton'>Sửa</a>
                         </td>   
                             </div>      
