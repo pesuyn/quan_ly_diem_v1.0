@@ -46,12 +46,12 @@
         </div>
         <table>
             <tr>
-                <th scope="col"><label>NO</th>  
-                <th scope="col"><label>Sinh viên</th>
-                <th scope="col"><label>Môn học</th>
-                <th scope="col"><label>Giáo viên</th>
-                <th scope="col"><label>Điểm</th>
-                <th scope="col" style="text-align:center;"><label>Action</th>
+                <th scope="col" style="table-layout: fixed; width: 20px;"><label>NO</th>  
+                <th scope="col" style="table-layout: fixed; width: 250px;"><label>Sinh viên</th>
+                <th scope="col" style="table-layout: fixed; width: 400px;"><label>Môn học</th>
+                <th scope="col" style="table-layout: fixed; width: 250px;"><label>Giáo viên</th>
+                <th scope="col" style="table-layout: fixed; width: 20px;"><label>Điểm</th>
+                <th scope="col" style="text-align:center; table-layout: fixed; width: 100px;"><label>Action</th>
             </tr>
             <?php
             if (isset($rowCounts) && $rowCounts>0) {
