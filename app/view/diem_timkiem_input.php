@@ -51,33 +51,33 @@
                 <th scope="col"><label>Môn học</th>
                 <th scope="col"><label>Giáo viên</th>
                 <th scope="col"><label>Điểm</th>
-                <th scope="col"><label>Action</th>
-                <th scope="col"><label>Action</th>
+                <th scope="col" style="text-align:center;"><label>Action</th>
             </tr>
             <?php
             if (isset($rowCounts) && $rowCounts>0) {
                 $stt = 1;
                 foreach ($statement as $key) { ?>
                     <tr>
-                        <td> <?php $stt++ ?></td>
-                        <td> <?php $key['Sinh viên'] ?></td>
-                        <td> <? $key['Môn học'] ?></td>
-                        <td> <? $key['Giáo viên'] ?></td>
-                        <td> <? $key['Điểm'] ?></td>   
+                        <td> <?php echo $stt++ ?></td>
+                        <td> <?php echo $key['Sinh viên'] ?></td>
+                        <td> <?php echo $key['Môn học'] ?></td>
+                        <td> <?php echo $key['Giáo viên'] ?></td>
+                        <td> <?php echo $key['Điểm'] ?></td>   
                         <td>
-                            <div class ="action">
+                        <div class ="button_action">
                             <a href='diem_init_search.php?idD=<?php echo $key['NO'] ?>'
                                 class='delbutton'  
-                                onclick="return confirm('Bạn có muốn xóa sinh viên <?php echo $keyAll['Sinh viên']; ?>')">Xóa</a>
-                        </td>   
+                                onclick="return confirm('Bạn có muốn xóa điểm của sinh viên <?php echo $key['Sinh viên']; ?> ?')">Xóa</a>
                         
-                        <td>
-                            <a href="diem_edit.php?idE=<?php echo $keyAll['NO']; ?>"
+                            <a href="diem_edit.php?idE=<?php echo $key['NO']; ?>"
                                 class='editbutton'>Sửa</a>
-                        </td>                                      
+                        </td>   
+                        </div>                         
                     </tr>
                     <?php
                 }
+            ?>
+            <?php 
             }else if (isset($rowCounts) && $rowCounts == 0 && $check==1) {
                 echo "";
             }else{
@@ -89,22 +89,21 @@
                 $stt = 1;
                 foreach ($statementScores as $keyAll){ ?>   
                     <tr>
-                        <td> <?php $stt++ ?></td>
-                        <td> <?php $keyAll['Sinh viên'] ?></td>
-                        <td> <? $keyAll['Môn học'] ?></td>
-                        <td> <? $keyAll['Giáo viên'] ?></td>
-                        <td> <? $keyAll['Điểm'] ?></td>   
+                        <td> <?php echo $stt++ ?></td>
+                        <td> <?php echo $keyAll['Sinh viên'] ?></td>
+                        <td> <?php echo $keyAll['Môn học'] ?></td>
+                        <td> <?php echo $keyAll['Giáo viên'] ?></td>
+                        <td> <?php echo $keyAll['Điểm'] ?></td>   
                         <td>
-                            <div class ="action">
-                            <a href='diem_init_search.php?idD=<?php echo $key['NO'] ?>'
+                            <div class ="button_action">
+                            <a href='diem_init_search.php?idD=<?php echo $keyAll['NO'] ?>'
                                 class='delbutton'  
-                                onclick="return confirm('Bạn có muốn xóa sinh viên <?php echo $keyAll['Sinh viên']; ?>')">Xóa</a>
-                        </td>   
+                                onclick="return confirm('Bạn có muốn xóa điểm của sinh viên <?php echo $keyAll['Sinh viên']; ?> ?')">Xóa</a>
                         
-                        <td>
                             <a href="diem_edit.php?idE=<?php echo $keyAll['NO']; ?>"
                                 class='editbutton'>Sửa</a>
-                        </td>         
+                        </td>   
+                            </div>      
                     </tr>
                     <?php 
                 }

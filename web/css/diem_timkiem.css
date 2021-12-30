@@ -111,3 +111,8 @@ table {
     text-align: center;
     border-color: black;  
 }
+
+.button_action{
+    display: flex;
+    justify-content: space-between;
+}
