@@ -3,7 +3,6 @@ class diem_model{
     function construct(){
 
     }
-    
     public $data = array();
 
     public function search($student, $subject, $teacher, $connect){

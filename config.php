@@ -7,7 +7,7 @@ const _ACTION_DEFAULT = 'login';
 const _INCODE = true;
 
 // The URL
-define('_WEB_HOST_ROOT', 'http://' . $_SERVER['HTTP_HOST'] . '/final-project');
+define('_WEB_HOST_ROOT', 'http://' . $_SERVER['HTTP_HOST'] . '/quan_ly_diem_v1.0');
 define('_WEB_HOST_TEMPLATE', _WEB_HOST_ROOT . '/web');
 
 // The absolute path
