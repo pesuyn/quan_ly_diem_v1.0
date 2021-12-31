@@ -1,11 +1,7 @@
 <?php
-class diem_model{
-    function construct(){
+    $data = array();
 
-    }
-    public $data = array();
-
-    public function search($student, $subject, $teacher, $connect){
+    function search($student, $subject, $teacher, $connect){
         $init = 1;
         $check = 1;
         $query = "SELECT 
@@ -27,14 +23,14 @@ class diem_model{
         $rowCounts = $statement->rowCount();
 
 
-        $this->data['init'] = $init;
-        $this->data['check'] = $check;
-        $this->data['statement'] = $statement;
-        $this->data['rowCounts'] = $rowCounts;
-        return $this->data;
+        $data['init'] = $init;
+        $data['check'] = $check;
+        $data['statement'] = $statement;
+        $data['rowCounts'] = $rowCounts;
+        return $data;
     }
 
-    public function initTable($connect){
+    function initTable($connect){
         $init = 0;
         $check = 0;
         $queryScores = "SELECT teachers.id,
@@ -53,23 +49,20 @@ class diem_model{
         $statementScores->execute();
         $rowCountsScores = $statementScores->rowCount();  
         
-        $this->data['init'] = $init;
-        $this->data['check'] = $check;
-        $this->data['statementScores'] = $statementScores;
-        $this->data['rowCountsScores'] = $rowCountsScores;
-        return $this->data;
+        $data['init'] = $init;
+        $data['check'] = $check;
+        $data['statementScores'] = $statementScores;
+        $data['rowCountsScores'] = $rowCountsScores;
+        return $data;
     }
 
-    public function delete($id,$connect){ 
+    function delete($id,$connect){ 
         $delete = "DELETE FROM scores WHERE scores.id = $id";
         $deleteStatement = $connect->prepare($delete);
         $deleteStatement->execute();
 }
 
-    public function edit(){
+    function edit(){
 
     }
-}
-
-
 ?>
