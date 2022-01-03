@@ -2,8 +2,12 @@
 require_once 'app/model/diem.php';
 require_once 'app/common/quanlydiem_conn.php';
 $conn = $connect;
-$data = initTable($conn);
-extract($data);
+
+if(!isset($_GET['searchByStudent']) && !isset($_GET['searchBySubject']) &&
+!isset($_GET['searchByTeacher'])){
+    $data = initTable($conn);
+    extract($data);
+}
 
 if(isset($_GET['searchByStudent']) && isset($_GET['searchBySubject']) &&
 isset($_GET['searchByTeacher'])){
@@ -14,5 +18,4 @@ isset($_GET['searchByTeacher'])){
     extract($data);
 }
 require_once 'C:/xampp/htdocs/web/quan_ly_diem_v1.0/app/view/diem_timkiem_input.php';
-
 ?>
