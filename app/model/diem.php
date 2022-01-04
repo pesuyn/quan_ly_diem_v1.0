@@ -30,32 +30,6 @@
         return $data;
     }
 
-    function initTable($connect){
-        $init = 0;
-        $check = 0;
-        $queryScores = "SELECT teachers.id,
-        scores.id as 'NO',
-        students.name as 'Sinh viên', 
-        subjects.name as 'Môn học' , 
-        teachers.name as 'Giáo viên', 
-        scores.score as 'Điểm' 
-        FROM scores, students, subjects, teachers
-        WHERE scores.student_id = students.id 
-        and scores.subject_id = subjects.id 
-        and scores.teacher_id = teachers.id
-        ORDER BY teachers.id DESC";
-
-        $statementScores =  $connect->prepare($queryScores);
-        $statementScores->execute();
-        $rowCountsScores = $statementScores->rowCount();  
-        
-        $data['init'] = $init;
-        $data['check'] = $check;
-        $data['statementScores'] = $statementScores;
-        $data['rowCountsScores'] = $rowCountsScores;
-        return $data;
-    }
-
     function delete($id,$connect){ 
         $delete = "DELETE FROM scores WHERE scores.id = $id";
         $deleteStatement = $connect->prepare($delete);
