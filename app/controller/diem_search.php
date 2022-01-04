@@ -16,7 +16,7 @@ if(!isset($_GET['searchByStudent']) && !isset($_GET['searchBySubject']) &&
 
 
 if(isset($_GET['searchByStudent']) && isset($_GET['searchBySubject']) &&
-isset($_GET['searchByTeacher'])){
+isset($_GET['searchByTeacher'])) {
     $student = $_GET['searchByStudent'];
     $subject = $_GET['searchBySubject'];
     $teacher = $_GET['searchByTeacher'];

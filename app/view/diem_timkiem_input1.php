@@ -13,6 +13,7 @@
 
 <body>
     <div class="container_search">
+    <div class="container_search">
         <form action="" method="GET">
             <input type="hidden" name="module" value="diem">
             <input type="hidden" name="action" value="search">
@@ -34,7 +35,7 @@
 
         <div class="button_submit"> 
             <input class="button" name="form_search" type="submit" value="Tìm kiếm">
-        </div>          
+        </div>    
+        </form>      
     </div>
-    </form>
 </body>

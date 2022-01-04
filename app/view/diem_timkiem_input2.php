@@ -34,7 +34,8 @@
 
         <div class="button_submit"> 
             <input class="button" name="form_search" type="submit" value="Tìm kiếm">
-        </div>          
+        </div>    
+        </form>      
     </div>
 
     <div class="container_table">
@@ -84,5 +85,4 @@
             ?>
         </table>
     </div>
-    </form>
 </body>
