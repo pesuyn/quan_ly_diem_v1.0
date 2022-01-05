@@ -80,6 +80,35 @@
                 }
             ?>
             <?php 
+            }else if (isset($rowCounts) && $rowCounts == 0 && $check==1) {
+                echo "";
+            }else{
+                if($init==0){
+                    echo '<div class="found">
+                            <label>Số bản ghi tìm thấy</label>: '.$rowCountsScores.'
+                        </div>';
+                }
+                $stt = 1;
+                foreach ($statementScores as $keyAll){ ?>   
+                    <tr>
+                        <td> <?php echo $stt++ ?></td>
+                        <td> <?php echo $keyAll['Sinh viên'] ?></td>
+                        <td> <?php echo $keyAll['Môn học'] ?></td>
+                        <td> <?php echo $keyAll['Giáo viên'] ?></td>
+                        <td> <?php echo $keyAll['Điểm'] ?></td>   
+                        <td>
+                            <div class ="button_action">
+                            <a href='<?php echo '?module=diem&action=delete&id='. $keyAll['NO']; ?>'
+                                class='delbutton'  
+                                onclick="return confirm('Bạn có muốn xóa điểm của sinh viên <?php echo $keyAll['Sinh viên']; ?> ?')">Xóa</a>
+                        
+                                <a href='<?php echo '?module=diem&action=edit&id='. $keyAll['NO']; ?>'
+                                class='editbutton'>Sửa</a>
+                        </td>   
+                            </div>      
+                    </tr>
+                    <?php 
+                }
             }
             ?>
         </table>
