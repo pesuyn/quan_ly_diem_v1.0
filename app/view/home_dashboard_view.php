@@ -22,7 +22,7 @@ if (!defined('_INCODE')) die('Access denied...');
                     <td><a href="?module=&action="> Tìm kiếm </a></td>
                     <td><a href="?module=subject&action=search"> Tìm kiếm </a></td>
                     <td><a href="?module=&action="> Tìm kiếm </a></td>
-                    <td><a href="?module=diem&action=search"> Tìm kiếm </a></td>
+                    <td><a href="?module=score&action=search"> Tìm kiếm </a></td>
                 </tr>
 
                 <tr>
