@@ -1,3 +1,7 @@
+<?php
+if (!defined('_INCODE')) die('Access denied...');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,13 +10,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search</title>
     <style type="text/css">
-        <?php include 'C:/xampp/htdocs/web/quanlydiem/web/css/diem_timkiem.css'; ?>
+        <?php include 'web/css/diem_timkiem.css'; ?>
     </style>
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <body>
     <div class="container_search">
+        <div class="function">
+            <label class="layout"><?php echo "Tìm kiếm điểm sinh viên"?><label>
+        </div>
         <form action="" method="GET">
             <input type="hidden" name="module" value="diem">
             <input type="hidden" name="action" value="search">
@@ -34,7 +41,8 @@
 
         <div class="button_submit"> 
             <input class="button" name="form_search" type="submit" value="Tìm kiếm">
-        </div>          
+        </div>    
+        </form>      
     </div>
 
     <div class="container_table">
@@ -80,38 +88,8 @@
                 }
             ?>
             <?php 
-            }else if (isset($rowCounts) && $rowCounts == 0 && $check==1) {
-                echo "";
-            }else{
-                if($init==0){
-                    echo '<div class="found">
-                            <label>Số bản ghi tìm thấy</label>: '.$rowCountsScores.'
-                        </div>';
-                }
-                $stt = 1;
-                foreach ($statementScores as $keyAll){ ?>   
-                    <tr>
-                        <td> <?php echo $stt++ ?></td>
-                        <td> <?php echo $keyAll['Sinh viên'] ?></td>
-                        <td> <?php echo $keyAll['Môn học'] ?></td>
-                        <td> <?php echo $keyAll['Giáo viên'] ?></td>
-                        <td> <?php echo $keyAll['Điểm'] ?></td>   
-                        <td>
-                            <div class ="button_action">
-                            <a href='<?php echo '?module=diem&action=delete&id='. $keyAll['NO']; ?>'
-                                class='delbutton'  
-                                onclick="return confirm('Bạn có muốn xóa điểm của sinh viên <?php echo $keyAll['Sinh viên']; ?> ?')">Xóa</a>
-                        
-                                <a href='<?php echo '?module=diem&action=edit&id='. $keyAll['NO']; ?>'
-                                class='editbutton'>Sửa</a>
-                        </td>   
-                            </div>      
-                    </tr>
-                    <?php 
-                }
             }
             ?>
         </table>
     </div>
-    </form>
 </body>

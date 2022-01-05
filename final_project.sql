@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 25, 2021 lúc 05:01 PM
+-- Thời gian đã tạo: Th1 05, 2022 lúc 09:26 AM
 -- Phiên bản máy phục vụ: 10.4.22-MariaDB
 -- Phiên bản PHP: 8.1.1
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `quanlydiem`
+-- Cơ sở dữ liệu: `final_project`
 --
 
 -- --------------------------------------------------------
@@ -30,19 +30,21 @@ SET time_zone = "+00:00";
 CREATE TABLE `admins` (
   `id` int(10) NOT NULL,
   `login_id` varchar(20) NOT NULL,
-  `password` varchar(64) NOT NULL,
-  `actived_flag` int(1) NOT NULL,
-  `reset_password_token` varchar(100) NOT NULL,
-  `updated` datetime NOT NULL DEFAULT current_timestamp(),
-  `created` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `password` varchar(64) DEFAULT NULL,
+  `actived_flag` int(1) NOT NULL DEFAULT 1,
+  `reset_password_token` varchar(100) DEFAULT NULL,
+  `updated` datetime DEFAULT NULL,
+  `created` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Đang đổ dữ liệu cho bảng `admins`
 --
 
 INSERT INTO `admins` (`id`, `login_id`, `password`, `actived_flag`, `reset_password_token`, `updated`, `created`) VALUES
-(1, 'thuydeptrai', '123', 1, 'thuy@gmail.com', '2021-12-14 15:45:34', '2021-12-14 15:44:02');
+(1, 'tienpm0312', '$2y$10$06OyZpFiJpLTs/a8rKhMfeaTtJ7vDKZo7I5wRtq/JVxkAZGjXGQ32', 1, NULL, NULL, '2021-12-29 16:48:44'),
+(2, 'crater0312', '$2y$10$V/fsOgHykJfbh88P1Jyn1eEudcDLAKJXjRd/mRChpLOWiQwmk6JYy', 1, NULL, NULL, '2021-12-30 16:48:44'),
+(3, 'martgold123', '$2y$10$e.5EJRFrxJdGeCWbhlJHEe9Opp6lpMBRYxSWTwoJDBvmOTcqFEHAq', 1, NULL, '2022-01-05 10:19:40', '2022-01-05 10:19:40');
 
 -- --------------------------------------------------------
 
@@ -53,19 +55,19 @@ INSERT INTO `admins` (`id`, `login_id`, `password`, `actived_flag`, `reset_passw
 CREATE TABLE `scores` (
   `id` int(10) NOT NULL,
   `student_id` int(10) NOT NULL,
-  `subject_id` int(10) NOT NULL,
   `teacher_id` int(10) NOT NULL,
+  `subject_id` int(10) NOT NULL,
   `score` int(2) NOT NULL DEFAULT 0,
-  `description` text NOT NULL,
-  `updated` datetime NOT NULL DEFAULT current_timestamp(),
-  `created` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `description` text DEFAULT NULL,
+  `updated` datetime DEFAULT NULL,
+  `created` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Đang đổ dữ liệu cho bảng `scores`
 --
 
-INSERT INTO `scores` (`id`, `student_id`, `subject_id`, `teacher_id`, `score`, `description`, `updated`, `created`) VALUES
+INSERT INTO `scores` (`id`, `student_id`, `teacher_id`, `subject_id`, `score`, `description`, `updated`, `created`) VALUES
 (1, 1, 1, 1, 10, '', '2021-12-25 13:34:47', '2021-12-25 07:33:47'),
 (2, 1, 3, 3, 9, '', '2021-12-25 13:35:19', '2021-12-25 07:35:05'),
 (3, 7, 7, 7, 9, '', '2021-12-25 13:35:19', '2021-12-25 07:35:05'),
@@ -90,26 +92,26 @@ INSERT INTO `scores` (`id`, `student_id`, `subject_id`, `teacher_id`, `score`, `
 
 CREATE TABLE `students` (
   `id` int(10) NOT NULL,
-  `name` varchar(250) NOT NULL,
-  `avatar` varchar(250) NOT NULL,
-  `description` text NOT NULL,
-  `updated` datetime NOT NULL DEFAULT current_timestamp(),
-  `created` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `name` varchar(250) DEFAULT NULL,
+  `avatar` varchar(250) DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `updated` datetime DEFAULT NULL,
+  `created` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Đang đổ dữ liệu cho bảng `students`
 --
 
 INSERT INTO `students` (`id`, `name`, `avatar`, `description`, `updated`, `created`) VALUES
-(1, 'Hà Quốc Việt', 'Viet.jpg', '', '2021-12-25 13:22:49', '2021-12-25 07:21:46'),
-(2, 'Trần Quang Thụy', 'Thuy.jpg', '', '2021-12-25 13:23:16', '2021-12-25 07:23:02'),
-(3, 'Phạm Minh Tiến', 'Tien.jpg', '', '2021-12-25 13:23:35', '2021-12-25 07:23:26'),
-(4, 'Nguyễn Xuân Thành', 'Thanh.jpg', '', '2021-12-25 13:23:55', '2021-12-25 07:23:39'),
-(5, 'Đỗ Hữu Quang', 'quang.jpg', '', '2021-12-25 13:24:12', '2021-12-25 07:24:03'),
-(6, 'Nguyễn Long Hải', 'hai.jpg', '', '2021-12-25 22:57:50', '2021-12-25 16:57:29'),
-(7, 'Phí Linh Chi', 'chi.jpg', '', '2021-12-25 22:59:51', '2021-12-25 16:59:42'),
-(8, 'Trần Thị Huyền Trang', 'trang.jpg', '', '2021-12-25 23:00:06', '2021-12-25 16:59:53');
+(1, 'Hà Quốc Việt', '', '', '2021-12-25 13:22:49', '2021-12-25 07:21:46'),
+(2, 'Trần Quang Thụy', '', '', '2021-12-25 13:23:16', '2021-12-25 07:23:02'),
+(3, 'Phạm Minh Tiến', '', '', '2021-12-25 13:23:35', '2021-12-25 07:23:26'),
+(4, 'Nguyễn Xuân Thành', '', '', '2021-12-25 13:23:55', '2021-12-25 07:23:39'),
+(5, 'Đỗ Hữu Quang', '', '', '2021-12-25 13:24:12', '2021-12-25 07:24:03'),
+(6, 'Nguyễn Long Hải', '', '', '2021-12-25 22:57:50', '2021-12-25 16:57:29'),
+(7, 'Phí Linh Chi', '', '', '2021-12-25 22:59:51', '2021-12-25 16:59:42'),
+(8, 'Trần Thị Huyền Trang', '', '', '2021-12-25 23:00:06', '2021-12-25 16:59:53');
 
 -- --------------------------------------------------------
 
@@ -119,13 +121,13 @@ INSERT INTO `students` (`id`, `name`, `avatar`, `description`, `updated`, `creat
 
 CREATE TABLE `subjects` (
   `id` int(10) NOT NULL,
-  `name` varchar(250) NOT NULL,
-  `avatar` varchar(250) NOT NULL,
-  `description` text NOT NULL,
-  `school_year` char(10) NOT NULL,
-  `updated` datetime NOT NULL DEFAULT current_timestamp(),
-  `created` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `name` varchar(250) DEFAULT NULL,
+  `avatar` varchar(250) DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `school_year` char(10) DEFAULT NULL,
+  `updated` datetime DEFAULT NULL,
+  `created` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Đang đổ dữ liệu cho bảng `subjects`
@@ -148,14 +150,14 @@ INSERT INTO `subjects` (`id`, `name`, `avatar`, `description`, `school_year`, `u
 
 CREATE TABLE `teachers` (
   `id` int(10) NOT NULL,
-  `name` varchar(250) NOT NULL,
-  `avatar` varchar(250) NOT NULL,
-  `description` text NOT NULL,
-  `specialized` char(10) NOT NULL,
-  `degree` char(10) NOT NULL,
-  `updated` datetime NOT NULL DEFAULT current_timestamp(),
-  `created` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `name` varchar(250) DEFAULT NULL,
+  `avatar` varchar(250) DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `specialized` char(10) DEFAULT NULL,
+  `degree` char(10) DEFAULT NULL,
+  `updated` datetime DEFAULT NULL,
+  `created` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Đang đổ dữ liệu cho bảng `teachers`
@@ -187,8 +189,8 @@ ALTER TABLE `admins`
 ALTER TABLE `scores`
   ADD PRIMARY KEY (`id`),
   ADD KEY `student_id` (`student_id`),
-  ADD KEY `subject_id` (`subject_id`),
-  ADD KEY `teacher_id` (`teacher_id`);
+  ADD KEY `teacher_id` (`teacher_id`),
+  ADD KEY `subject_id` (`subject_id`);
 
 --
 -- Chỉ mục cho bảng `students`
@@ -216,7 +218,7 @@ ALTER TABLE `teachers`
 -- AUTO_INCREMENT cho bảng `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `scores`
@@ -234,7 +236,7 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT cho bảng `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `teachers`
@@ -250,9 +252,9 @@ ALTER TABLE `teachers`
 -- Các ràng buộc cho bảng `scores`
 --
 ALTER TABLE `scores`
-  ADD CONSTRAINT `scores_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `scores_ibfk_2` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `scores_ibfk_3` FOREIGN KEY (`teacher_id`) REFERENCES `teachers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `scores_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`),
+  ADD CONSTRAINT `scores_ibfk_2` FOREIGN KEY (`teacher_id`) REFERENCES `teachers` (`id`),
+  ADD CONSTRAINT `scores_ibfk_3` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
